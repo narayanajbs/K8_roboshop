@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       project: roboshop
-      domain: catalouge
+      domain: mongodb
       tier: db
   template:
     metadata:
