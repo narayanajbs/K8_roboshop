@@ -9,7 +9,7 @@ spec:
     matchLabels:
       project: roboshop
       domain: catalouge
-      tier: app
+      tier: db
   template:
     metadata:
       name: mongodb
@@ -33,8 +33,8 @@ spec:
   selector:
     matchLabels:
       project: roboshop
-      domain: catalouge
-      tier: app   
+      domain: mongodb
+      tier: db   
   ports:
   - protocol: TCP
     port: 27017
