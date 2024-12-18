@@ -12,8 +12,6 @@ spec:
       tier: db
   template:
     metadata:
-      name: mongodb
-      namespace: roboshop
       labels: 
         project: roboshop
         domain: mongodb
@@ -31,7 +29,6 @@ metadata:
   namespace: roboshop
 spec:
   selector:
-    matchLabels:
       project: roboshop
       domain: mongodb
       tier: db   
