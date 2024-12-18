@@ -3,14 +3,14 @@ kind: Deployment
 metadata:
   name: mongodb-deployment
   namespace: roboshop
-  lables:
+  label:
     project: roboshop
     domain: mongodb
     tier: db
 spec:
   replicas: 1
   selector:
-    matchLables:
+    matchLabels:
       project: roboshop
       domain: catalouge
       tier: app
@@ -18,7 +18,7 @@ spec:
     metadata:
       name: mongodb
       namespace: roboshop
-      lables: 
+      labels: 
         project: roboshop
         domain: mongodb
         tier: db
@@ -35,7 +35,7 @@ metadata:
   namespace: roboshop
 spec:
   selector:
-    matchLables:
+    matchLabels:
       project: roboshop
       domain: catalouge
       tier: app   

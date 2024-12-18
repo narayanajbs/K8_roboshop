@@ -12,14 +12,14 @@ kind: Deployment
 metadata:
   name: catalouge-deployment
   namespace: roboshop
-  lables:
+  labels:
     project: roboshop
     domain: catalouge
     tier: app
 spec:
   replicas: 1
   selector:
-    matchLables:
+    matchLabels:
       project: roboshop
       domain: catalouge
       tier: app
@@ -27,7 +27,7 @@ spec:
     metadata: 
       name: catalouge
       namespace: roboshop
-      lables:
+      labels:
         project: roboshop
         domain: catalouge
         tier: app
