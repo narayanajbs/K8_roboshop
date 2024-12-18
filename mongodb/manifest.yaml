@@ -3,10 +3,6 @@ kind: Deployment
 metadata:
   name: mongodb-deployment
   namespace: roboshop
-  label:
-    project: roboshop
-    domain: mongodb
-    tier: db
 spec:
   replicas: 1
   selector:
@@ -40,7 +36,7 @@ spec:
       domain: catalouge
       tier: app   
   ports:
-    protocol: TCP
+  - protocol: TCP
     port: 27017
     targetPort: 27017  
   
