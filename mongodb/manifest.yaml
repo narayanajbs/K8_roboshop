@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: roboshop/mongodb:v1
+        image: narayanaguni/mongodb:v1
         imagePullPolicy: Always
 ---
 apiVersion: v1

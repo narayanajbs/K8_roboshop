@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: catalouge
-        image: roboshop/catalouge:v1
+        image: narayanaguni/catalouge:v1
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
