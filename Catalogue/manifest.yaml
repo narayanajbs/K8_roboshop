@@ -1,0 +1,60 @@
+apiVersion: v1
+kind: ConFigMap
+metadata:
+  name: catalouge-configmap
+  namespace: roboshop
+spec:
+  data:
+    MONGO: "true"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalouge-deployment
+  namespace: roboshop
+  lables:
+    project: roboshop
+    domain: catalouge
+    tier: app
+spec:
+  replicas: 1
+  selector:
+    matchLables:
+      project: roboshop
+      domain: catalouge
+      tier: app
+  template:
+    metadata: 
+      name: catalouge
+      namespace: roboshop
+      lables:
+        project: roboshop
+        domain: catalouge
+        tier: app
+    spec:
+      containers:
+      - name: catalouge
+        image: roboshop/catalouge:v1
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: catalouge-configmap
+        ports:
+          containerPort: 8080
+ 
+---
+apiVersion: v1 
+kind: Service
+metadata:
+  name: catalouge-service
+  namespace: roboshop
+spec:
+  selector:
+    matchlables:
+      project: roboshop
+      domain: catalouge
+      tier: app
+  ports:
+  - porotocols: TCP
+    port: 8080
+    targetPort: 8080

@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-deployment
+  namespace: roboshop
+  lables:
+    project: roboshop
+    domain: mongodb
+    tier: db
+spec:
+  replicas: 1
+  selector:
+    matchLables:
+      project: roboshop
+      domain: catalouge
+      tier: app
+  template:
+    metadata:
+      name: mongodb
+      namespace: roboshop
+      lables: 
+        project: roboshop
+        domain: mongodb
+        tier: db
+    spec:
+      containers:
+      - name: mongodb
+        image: roboshop/mongodb:v1
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service
+  namespace: roboshop
+spec:
+  selector:
+    matchLables:
+      project: roboshop
+      domain: catalouge
+      tier: app   
+  ports:
+    protocol: TCP
+    port: 27017
+    targetPort: 27017  
+  
