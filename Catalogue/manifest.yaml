@@ -3,9 +3,8 @@ kind: ConfigMap
 metadata:
   name: catalouge
   namespace: roboshop
-spec:
-  data:
-    MONGO: "true"
+data:
+  MONGO: "true"
 ---
 apiVersion: apps/v1
 kind: Deployment
