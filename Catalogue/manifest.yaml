@@ -43,10 +43,9 @@ metadata:
   namespace: roboshop
 spec:
   selector:
-    matchLables:
-      project: roboshop
-      domain: catalouge
-      tier: app
+    project: roboshop
+    domain: catalouge
+    tier: app
   ports:
   - porotocols: TCP
     port: 8080
