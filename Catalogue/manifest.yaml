@@ -32,8 +32,6 @@ spec:
         envFrom:
         - configMapRef:
             name: catalouge-configmap
-        ports:
-          containerPort: 8080
       imagePullSecrets:
       - name: my-docker-secret
  
@@ -45,7 +43,7 @@ metadata:
   namespace: roboshop
 spec:
   selector:
-    matchlables:
+    matchLables:
       project: roboshop
       domain: catalouge
       tier: app
