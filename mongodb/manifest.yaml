@@ -21,6 +21,8 @@ spec:
       - name: mongodb
         image: /narayanaguni/mongodb:v1
         imagePullPolicy: Always
+      imagePullSecrets:
+      - name: my-docker-secret
 ---
 apiVersion: v1
 kind: Service
