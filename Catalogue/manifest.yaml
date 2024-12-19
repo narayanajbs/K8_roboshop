@@ -1,7 +1,7 @@
 apiVersion: v1
-kind: ConFigMap
+kind: ConfigMap
 metadata:
-  name: catalouge-configmap
+  name: catalouge
   namespace: roboshop
 spec:
   data:
@@ -10,12 +10,8 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: catalouge-deployment
+  name: catalouge
   namespace: roboshop
-  labels:
-    project: roboshop
-    domain: catalouge
-    tier: app
 spec:
   replicas: 1
   selector:
@@ -25,8 +21,6 @@ spec:
       tier: app
   template:
     metadata: 
-      name: catalouge
-      namespace: roboshop
       labels:
         project: roboshop
         domain: catalouge
@@ -36,13 +30,13 @@ spec:
       - name: catalouge
         image: narayanaguni/catalouge:v1
         imagePullPolicy: Always
-      imagePullSecrets:
-      - name: my-docker-secret
         envFrom:
         - configMapRef:
             name: catalouge-configmap
         ports:
           containerPort: 8080
+      imagePullSecrets:
+      - name: my-docker-secret
  
 ---
 apiVersion: v1 
