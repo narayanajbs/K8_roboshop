@@ -36,6 +36,8 @@ spec:
       - name: catalouge
         image: narayanaguni/catalouge:v1
         imagePullPolicy: Always
+      imagePullSecrets:
+      - name: my-docker-secret
         envFrom:
         - configMapRef:
             name: catalouge-configmap
