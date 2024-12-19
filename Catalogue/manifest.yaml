@@ -47,6 +47,6 @@ spec:
     domain: catalouge
     tier: app
   ports:
-  - porotocols: TCP
+  - protocol: TCP
     port: 8080
     targetPort: 8080
