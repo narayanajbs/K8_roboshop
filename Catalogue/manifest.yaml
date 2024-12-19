@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: catalouge
+  name: catalouge-configmap
   namespace: roboshop
 data:
   MONGO: "true"
