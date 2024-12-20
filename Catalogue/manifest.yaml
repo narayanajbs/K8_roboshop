@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: catalouge
-        image: narayanaguni/catalogue:v1
+        image: narayanaguni/catalouge:v1
         imagePullPolicy: Always
         envFrom:
         - configMapRef:

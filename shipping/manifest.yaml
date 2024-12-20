@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: shipping
+  namesapce: roboshop
+data:
+  CART_ENDPOINT: "cart:8080" 
+  DB_HOST: mysql
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipping
+  namesapce: roboshop
+spec:
+  replicas: 1
+  selector:
+    matchLables:
+      project: roboshop
+      domain: shipping
+      tier: app
+  template:
+    metadata:
+      lables:
+        project: roboshop
+        domain: shipping
+        tier: app
+    spec:
+      containers:
+      - name: shipping
+        image: narayanaguni/shipping:v1
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+          name: shipping
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: shipping-service
+  namespace: roboshop
+spec:
+  selector:
+    project: roboshop
+    domain: shipping
+    tier: app
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
