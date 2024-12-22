@@ -34,7 +34,7 @@ spec:
         imagePullPolicy: Always
         envFrom:
         - secretRef:
-          name: rabbitmq
+            name: rabbitmq
 ---
 apiVersion: v1
 kind: Service
