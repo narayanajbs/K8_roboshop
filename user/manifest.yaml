@@ -31,7 +31,7 @@ spec:
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
-          name: user
+            name: user
 ---
 apiVersion: v1
 kind: Service
