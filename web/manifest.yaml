@@ -112,13 +112,12 @@ spec:
       - name: web
         image: narayanaguni/web:v1
         imagePullPolicy: Always
-        volumeMouth:
+        volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
           readOnly: true
-        
-    volume:
+    volumes:
     - name: nginx-conf
       configMap:
         name: web
