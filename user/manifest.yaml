@@ -23,7 +23,7 @@ spec:
       labels:
         project: roboshop
         domain: radis
-        tier: db
+        tier: app
     spec:
       containers:
       - name: user
@@ -42,7 +42,7 @@ spec:
   selector:
     project: roboshop
     domain: radis
-    tier: db
+    tier: app
   ports:
   - protocol: TCP
     port: 8080
