@@ -7,7 +7,6 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      labels: 
         project: roboshop
         domain: radis
         tier: db    
