@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: catalouge-configmap
+  name: catalogue-configmap
   namespace: roboshop
 data:
   MONGO: "true"
@@ -9,40 +9,40 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: catalouge
+  name: catalogue
   namespace: roboshop
 spec:
   replicas: 1
   selector:
     matchLabels:
       project: roboshop
-      domain: catalouge
+      domain: catalogue
       tier: app
   template:
     metadata: 
       labels:
         project: roboshop
-        domain: catalouge
+        domain: catalogue
         tier: app
     spec:
       containers:
-      - name: catalouge
+      - name: catalogue
         image: narayanaguni/catalogue:v1
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
-            name: catalouge-configmap
+            name: catalogue-configmap
 
 ---
 apiVersion: v1 
 kind: Service
 metadata:
-  name: catalouge-service
+  name: catalogue-service
   namespace: roboshop
 spec:
   selector:
     project: roboshop
-    domain: catalouge
+    domain: catalogue
     tier: app
   ports:
   - protocol: TCP
