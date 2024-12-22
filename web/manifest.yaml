@@ -97,7 +97,7 @@ metadata:
 spec:
   replicas: 1
   selector: 
-    matchLables:
+    matchLabels:
       labels:
         project: roboshop
         domain: web

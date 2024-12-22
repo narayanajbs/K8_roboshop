@@ -16,13 +16,13 @@ metadata:
 spec:
   replicas: 1
   selector:
-    matchLables:
+    matchLabels:
       project: roboshop
       domain: shipping
       tier: app
   template:
     metadata:
-      lables:
+      labels:
         project: roboshop
         domain: shipping
         tier: app

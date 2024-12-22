@@ -32,7 +32,7 @@ spec:
       tier: db
   template:
     metadata:
-      lables: 
+      labels: 
         project: roboshop
         domain: mysql
         tier: db
