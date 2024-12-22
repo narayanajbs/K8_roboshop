@@ -1,36 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment 
 metadata:
-  name: radis
+  name: redis
   namespace: roboshop
 spec:
   replicas: 1
   selector:
     matchLabels:
         project: roboshop
-        domain: radis
+        domain: redis
         tier: db    
   template:
     metadata:
       labels:
         project: roboshop
-        domain: radis
+        domain: redis
         tier: db
     spec:
       containers:
-      - name: radis
-        image: radis
+      - name: redis
+        image: redis
         imagePullPolicy: Always
 ---
 apiVersion: v1 
 kind: Service
 metadata:
-  name: radis-service
+  name: redis-service
   namespace: roboshop
 spec:
   selector:
     project: roboshop
-    domain: radis
+    domain: redis
     tier: db          
   ports:
   - protocol: TCP
