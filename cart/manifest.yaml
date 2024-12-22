@@ -5,8 +5,8 @@ metadata:
   namespace: roboshop
 data:
   REDIS_HOST: radis
-  CATALOGUE_HOST: catalouge
-  CATALOGUE_PORT: 8080
+  CATALOGUE_HOST: "catalouge"
+  CATALOGUE_PORT: "8080"
 ---
 apiVersion: apps/v1
 kind: Deployment
