@@ -22,7 +22,7 @@ spec:
     metadata:
       labels:
         project: roboshop
-        domain: radis
+        domain: user
         tier: app
     spec:
       containers:
@@ -41,7 +41,7 @@ metadata:
 spec:
   selector:
     project: roboshop
-    domain: radis
+    domain: user
     tier: app
   ports:
   - protocol: TCP
